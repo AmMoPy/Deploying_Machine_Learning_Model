@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Portal - Predictions</title>
+</head>
+<body>
+
+    <h1>Churn Predictions</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="/prs" method = "POST" enctype="multipart/form-data">
+        <p>Classification threshold <input type = "text" name = "threshold" /></p>
+        <p>Customers JSON <input type="file" name="customers_json" accept=".json" /></p>
+        <p><input type = "submit" value = "Submit" /></p>
+    </form>
+    <br>
+</body>
+</html>
